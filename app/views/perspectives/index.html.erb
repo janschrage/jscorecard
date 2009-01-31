@@ -1,0 +1,22 @@
+<h1>Listing perspectives</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+
+<% for perspective in @perspectives %>
+  <tr>
+    <td><%=h perspective.name %></td>
+    <td><%=h perspective.description %></td>
+    <td><%= link_to 'Show', perspective %></td>
+    <td><%= link_to 'Edit', edit_perspective_path(perspective) %></td>
+    <td><%= link_to 'Destroy', perspective, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New perspective', new_perspective_path %>

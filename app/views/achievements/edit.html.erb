@@ -1,0 +1,23 @@
+<h1>Editing achievement</h1>
+
+<% form_for(@achievement) do |f| %>
+  <%= f.error_messages %>
+  <p>
+    KPI:<br />
+    <% @kpis=Kpi.find(:all) %>
+    <%= f.collection_select :kpi_id, @kpis, :id, :name %>
+  </p>  <p>
+    <%= f.label :report_date %><br />
+    <%= f.date_select :report_date %>
+  </p>
+  <p>
+    <%= f.label :kpivalue %><br />
+    <%= f.text_field :kpivalue %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @achievement %> |
+<%= link_to 'Back', achievements_path %>

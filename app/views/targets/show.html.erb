@@ -1,0 +1,18 @@
+<p>
+  <b>Name:</b>
+  <%=h @target.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @target.description %>
+</p>
+
+<p>
+  <b>Perspective:</b>
+  <%=h @target.perspective.name %>
+</p>
+
+
+<%= link_to 'Edit', edit_target_path(@target) %> |
+<%= link_to 'Back', targets_path %>

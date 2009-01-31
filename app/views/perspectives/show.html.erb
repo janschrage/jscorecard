@@ -1,0 +1,13 @@
+<p>
+  <b>Name:</b>
+  <%=h @perspective.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @perspective.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_perspective_path(@perspective) %> |
+<%= link_to 'Back', perspectives_path %>

@@ -1,0 +1,28 @@
+<p>
+  <b>KPI:</b>
+  <%=h @kpitarget.kpi.name %>
+</p>
+
+<p>
+  <b>Begda:</b>
+  <%=h @kpitarget.begda %>
+</p>
+
+<p>
+  <b>Endda:</b>
+  <%=h @kpitarget.endda %>
+</p>
+
+<p>
+  <b>Target value:</b>
+  <%=h @kpitarget.target_value %>
+</p>
+
+<p>
+  <b>Include in evaluation:</b>
+  <%=h @kpitarget.include_in_evaluation %>
+</p>
+
+
+<%= link_to 'Edit', edit_kpitarget_path(@kpitarget) %> |
+<%= link_to 'Back', kpitargets_path %>

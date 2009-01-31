@@ -1,0 +1,100 @@
+body { background-color: #fff; color: #333; }
+
+body, p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size:   13px;
+  line-height: 18px;
+}
+
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+a { color: #000; }
+a:visited { color: #666; }
+a:hover { color: #fff; background-color:#000; }
+
+.fieldWithErrors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+#errorExplanation {
+  width: 400px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#errorExplanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  background-color: #c00;
+  color: #fff;
+}
+
+#errorExplanation p {
+  color: #333;
+  margin-bottom: 0;
+  padding: 5px;
+}
+
+#errorExplanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+
+/* Floats */
+.left { float: left; text-align: left;}
+.right{ float: right; text-align: right;}
+
+#topbar { float: top; }
+
+#usermenu { 
+  overflow: hidden;
+  /*float: top;*/  
+  position: absolute; right: 0px; top: 0px;
+  width: auto;                             
+  }                                        
+
+#usermenu a { 
+  float: right;
+  text-align: right; 
+  width: auto;       
+  font-family: sans-serif; 
+  color: #446655;          
+  display: block;          
+  padding: 2px 4px 2px 2px 
+  }                        
+
+#logo {
+  position: relative; left: 0px;
+}  
+
+/* Tables */
+th { text-align: left }
+td.number { text-align: right }
+td { text-align: left }
+tr.subheader { background-color: #ddddff; 
+               font-weight: bold;}
+
+/* Lists */                     
+.list-line-even {               
+  background:   #eeeeee ;       
+}                               
+.list-line-odd {                
+  background:   #cccccc ;       
+}  
+
+/* Generic table */
+.table-wrap {display: table}
+.table-row {display: table-row;}
+.table-cell {display: table-cell; padding-left: 20px; padding-right: 20px;}

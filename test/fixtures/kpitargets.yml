@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  kpi_id: 1
+  begda: 2009-01-31
+  endda: 2009-01-31
+  target_value: 9.99
+  include_in_evaluation: false
+
+two:
+  kpi_id: 1
+  begda: 2009-01-31
+  endda: 2009-01-31
+  target_value: 9.99
+  include_in_evaluation: false

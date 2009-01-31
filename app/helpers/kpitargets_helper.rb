@@ -1,0 +1,2 @@
+module KpitargetsHelper
+end

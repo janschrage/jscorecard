@@ -1,0 +1,29 @@
+<h1>Editing kpi</h1>
+
+<% form_for(@kpi) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </p>
+  <p>
+    Belongs to target:<br />
+    <% @targets=Target.find(:all) %>
+    <%= f.collection_select :target_id, @targets, :id, :name %>
+  </p>
+  <p>
+    <%= f.label :bigger_is_better %><br />
+    <%= f.check_box :bigger_is_better %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @kpi %> |
+<%= link_to 'Back', kpis_path %>

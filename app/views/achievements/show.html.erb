@@ -1,0 +1,18 @@
+<p>
+  <b>Kpi:</b>
+  <%=h @achievement.kpi.name %>
+</p>
+
+<p>
+  <b>Report date:</b>
+  <%=h @achievement.report_date %>
+</p>
+
+<p>
+  <b>Kpivalue:</b>
+  <%=h @achievement.kpivalue %>
+</p>
+
+
+<%= link_to 'Edit', edit_achievement_path(@achievement) %> |
+<%= link_to 'Back', achievements_path %>

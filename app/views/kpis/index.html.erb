@@ -1,0 +1,28 @@
+<h1>Listing kpis</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Target</th>
+    <th>Perspective</th>
+    <th>Bigger is better</th>
+  </tr>
+
+<% for kpi in @kpis %>
+  <tr>
+    <td><%=h kpi.name %></td>
+    <td><%=h kpi.description %></td>
+    <td><%=h kpi.target.name %></td>
+    <td><%=h kpi.target.perspective.name %></td>
+    <td><%=h kpi.bigger_is_better %></td>
+    <td><%= link_to 'Show', kpi %></td>
+    <td><%= link_to 'Edit', edit_kpi_path(kpi) %></td>
+    <td><%= link_to 'Destroy', kpi, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New kpi', new_kpi_path %>

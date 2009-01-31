@@ -1,0 +1,7 @@
+*~
+GSPlan.kdevelop
+GSPlan.kdevses
+db/GSPlan_test
+db/GSPlan_development
+log/*
+tmp

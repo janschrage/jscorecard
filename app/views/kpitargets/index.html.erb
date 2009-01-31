@@ -1,0 +1,28 @@
+<h1>Listing kpitargets</h1>
+
+<table>
+  <tr>
+    <th>Kpi</th>
+    <th>Begda</th>
+    <th>Endda</th>
+    <th>Target value</th>
+    <th>Include in evaluation</th>
+  </tr>
+
+<% for kpitarget in @kpitargets %>
+  <tr>
+    <td><%=h kpitarget.kpi.name %></td>
+    <td><%=h kpitarget.begda %></td>
+    <td><%=h kpitarget.endda %></td>
+    <td><%=h kpitarget.target_value %></td>
+    <td><%=h kpitarget.include_in_evaluation %></td>
+    <td><%= link_to 'Show', kpitarget %></td>
+    <td><%= link_to 'Edit', edit_kpitarget_path(kpitarget) %></td>
+    <td><%= link_to 'Destroy', kpitarget, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New kpitarget', new_kpitarget_path %>

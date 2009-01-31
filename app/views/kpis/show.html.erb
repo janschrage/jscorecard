@@ -1,0 +1,23 @@
+<p>
+  <b>Name:</b>
+  <%=h @kpi.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @kpi.description %>
+</p>
+
+<p>
+  <b>Target:</b>
+  <%=h @kpi.target.name %>
+</p>
+
+<p>
+  <b>Bigger is better:</b>
+  <%=h @kpi.bigger_is_better %>
+</p>
+
+
+<%= link_to 'Edit', edit_kpi_path(@kpi) %> |
+<%= link_to 'Back', kpis_path %>

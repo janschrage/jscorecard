@@ -1,0 +1,32 @@
+<h1>New kpitarget</h1>
+
+<% form_for(@kpitarget) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    KPI:<br />
+    <% @kpis=Kpi.find(:all) %>
+    <%= f.collection_select :kpi_id, @kpis, :id, :name %>
+  </p>
+  <p>
+    <%= f.label :begda %><br />
+    <%= f.date_select :begda %>
+  </p>
+  <p>
+    <%= f.label :endda %><br />
+    <%= f.date_select :endda %>
+  </p>
+  <p>
+    <%= f.label :target_value %><br />
+    <%= f.text_field :target_value %>
+  </p>
+  <p>
+    <%= f.label :include_in_evaluation %><br />
+    <%= f.check_box :include_in_evaluation %>
+  </p>
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', kpitargets_path %>
