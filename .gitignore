@@ -1,7 +1,6 @@
 *~
-GSPlan.kdevelop
-GSPlan.kdevses
-db/GSPlan_test
-db/GSPlan_development
+*.kdevelop
+*.kdevses
+db/*.sqlite3
 log/*
 tmp
