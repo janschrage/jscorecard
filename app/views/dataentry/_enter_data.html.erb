@@ -1,0 +1,73 @@
+<% if @perspectives %>
+<h1>Enter data</h1>
+
+<table>
+<tr>
+<th>Perspective</th><th>Target</th><th>KPI</th><th>Achieved value</th>
+<% @perspectives.each do |p| %>
+
+<tr class="subheader">
+<td><%=h p.name%></td><td></td><td></td><td></td>
+</tr>
+
+<% for target in p.targets %>
+<tr class="subheader">
+<td></td>
+<td><%=h target.name -%></td>
+<td></td><td></td>
+</tr>
+<% for kpi in target.kpis %>
+  <tr class="<%= cycle('list-line-odd', 'list-line-even') %>">
+    <td></td><td></td>
+    <td><%=h kpi.name %></td>
+    <td>
+      <% @achievement=kpi.achievement_for(session[:report_date].to_date) %>
+      <% if @achievement %> 
+ <%= editable_content(
+      :content => {
+        :element => 'span',
+        :text => @achievement.kpivalue,
+        :options => {
+          :id => "achievement_#{@achievement.id}",
+          :class => 'editable-content'
+        }
+       },
+      :url => {
+        :controller => 'dataentry',
+        :action => 'update',
+        :authenticity_token => form_authenticity_token,
+        :id => @achievement.id
+       },
+      :ajax => {
+        :okText => "'OK'",
+        :cancelText => "'Cancelled'"
+       }
+    ) %>    
+      <% else %>
+<%= editable_content(
+      :content => {
+        :element => 'span',
+        :text => 'Add',
+        :options => {
+          :id => "achievement_for_#{kpi.id}",
+          :class => 'editable-content'
+        }
+       },
+      :url => {
+        :controller => 'dataentry',
+        :action => 'new',
+        :authenticity_token => form_authenticity_token,
+        :id => kpi.id
+       },
+      :ajax => {
+        :okText => "'OK'",
+        :cancelText => "'Cancelled'"
+       }
+    ) %>
+      <%end%></td>
+  </tr>
+<% end %>
+<% end %>
+<% end %>
+</table>
+<%end%>

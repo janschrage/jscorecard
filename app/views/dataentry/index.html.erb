@@ -1,0 +1,26 @@
+<div id="pagecontent">
+
+<h1>Data entry</h1>
+
+<% form_remote_for :entry_variables, @entry_variables, 
+         :url=>{:controller=>"dataentry", :action=>"enter_data"},            
+         :update => {:success => "enter_data"}, :html => { :multipart => true } do |f| %>
+<table>
+<tr>
+<td class="text"><label for="report_date">Report date:</label></td><td><%= f.text_field :report_date, :size => 10, :value => @entry_variables[:report_date].to_s %></td>
+</tr>
+</table>
+<%= submit_tag "Go" %>
+
+<% end %>
+
+<div id="data_entry">
+<%= render(:partial => "enter_data", :object => @perspectives) %>
+</div>
+
+
+
+
+</div>
+
+

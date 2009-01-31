@@ -82,4 +82,15 @@ class AchievementsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+  def new_for_kpi
+    @achievement = Achievement.new
+    @achievement.report_date = session[:report_date].to_s
+    @achievement.kpi_id = params[:id]
+    respond_to do |format|
+      format.html # new.html.erb
+      format.xml  { render :xml => @achievement }
+    end
+
+  end
 end

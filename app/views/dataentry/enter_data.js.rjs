@@ -1,0 +1,1 @@
+page.replace_html("data_entry", :partial => "enter_data", :object => @perspectives)

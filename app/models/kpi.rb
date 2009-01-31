@@ -12,6 +12,11 @@ class Kpi < ActiveRecord::Base
     v=self.achievements.find(:first,:order => "report_date DESC")
     return v.kpivalue unless v.nil?
   end
+
+  def achievement_for(report_date)
+    v=self.achievements.find_by_report_date(report_date)
+    return v unless v.nil?
+  end
   
   def achievement_percentage(report_date)
     target = target_value_for(report_date)
