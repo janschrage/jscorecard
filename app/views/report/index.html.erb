@@ -2,19 +2,19 @@
 
 <table>
 <tr>
-<th>Perspective</th><th>Target</th><th>KPI</th><th>KPI target value</th><th>Achieved value</th>
+<th>Perspective</th><th>Target</th><th>KPI</th><th>KPI target value</th><th>Achieved value</th><th>% reached</th>
 </tr>
 <% @perspectives.each do |p| %>
 
 <tr class="subheader">
-<td><%=h p.name%></td><td></td><td></td><td></td><td></td>
+<td><%=h p.name%></td><td></td><td></td><td></td><td></td><td></td>
 </tr>
 
 <% for target in p.targets %>
 <tr class="subheader">
 <td></td>
 <td><%=h target.name -%></td>
-<td></td><td></td><td></td>
+<td></td><td></td><td></td><td></td>
 </tr>
 <% for kpi in target.kpis %>
   <tr class="<%= cycle('list-line-odd', 'list-line-even') %>">
@@ -22,6 +22,7 @@
     <td><%=h kpi.name %></td>
     <td class="number"><%=h kpi.target_value_for(Date::today) %></td>
     <td class="number"><%=h kpi.last_achieved_value() %></td>
+    <td class="<%=h kpi.achievement_rating(Date::today)%>"><%=h kpi.achievement_percentage(Date::today) %></td>
   </tr>
 <% end %>
 <% end %>
