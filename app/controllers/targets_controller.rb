@@ -1,4 +1,7 @@
 class TargetsController < ApplicationController
+
+  cache_sweeper :audit_sweeper
+
   # GET /targets
   # GET /targets.xml
   def index

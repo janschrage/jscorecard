@@ -1,4 +1,7 @@
 class KpisController < ApplicationController
+
+  cache_sweeper :audit_sweeper
+
   # GET /kpis
   # GET /kpis.xml
   def index

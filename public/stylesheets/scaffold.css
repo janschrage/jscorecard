@@ -58,6 +58,8 @@ a:hover { color: #fff; background-color:#000; }
 
 #topbar { float: top; }
 
+.pagecontent { position: absolute; top: 60px; left: 10px;}
+
 #usermenu { 
   overflow: hidden;
   /*float: top;*/  
@@ -79,6 +81,15 @@ a:hover { color: #fff; background-color:#000; }
   position: relative; left: 0px;
 }  
 
+#mainmenu{ 
+overflow: hidden; 
+width: auto;
+background: #F7F7F7; 
+border: 1px solid gray;
+padding: 4px 0;
+border-width: 1px 0;
+}
+
 /* Tables */
 th { text-align: left }
 td.number { text-align: right }
@@ -98,8 +109,40 @@ tr.subheader { background-color: #ddddff;
 .table-wrap {display: table}
 .table-row {display: table-row;}
 .table-cell {display: table-cell; padding-left: 20px; padding-right: 20px;}
+.cell-action {
+	background: #ffff88
+}
 
 /* Status of a kpi */
 .ok { background-color: #00ff00;}
 .improve { background-color: #ffff00;}
 .failing { background-color: #ff0000;}
+
+/* Maintenance view */
+#maint-wrap {display: table}
+#maint-row {display: table-row;}
+#maint-left,#maint-middle,#maint-right   {vertical-align: top; display: table-cell; padding-left: 20px; padding-right: 20px;}
+
+/* Login form */
+.login-form fieldset {
+  background: #efe;
+}
+
+.login-form legend {
+  color: #dfd;
+  background: #141;
+  font-family: sans-serif;
+  padding: 0.2em 1em;
+}
+
+.login-form label {
+  width: 5em;
+  float: left;
+  text-align: right;
+  margin-right: 0.5em;
+  display: block;
+}
+
+.login-form .submit {
+  margin-left: 5.5em;
+}

@@ -1,4 +1,7 @@
 class AchievementsController < ApplicationController
+  
+  cache_sweeper :audit_sweeper
+ 
   # GET /achievements
   # GET /achievements.xml
   def index

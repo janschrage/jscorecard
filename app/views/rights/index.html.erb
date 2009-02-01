@@ -1,0 +1,24 @@
+<h1>Listing rights</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Controller</th>
+    <th>Action</th>
+  </tr>
+
+<% for right in @rights %>
+  <tr>
+    <td><%=h right.name %></td>
+    <td><%=h right.controller %></td>
+    <td><%=h right.action %></td>
+    <td><%= link_to 'Show', right %></td>
+    <td><%= link_to 'Edit', edit_right_path(right) %></td>
+    <td><%= link_to 'Destroy', right, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New right', new_right_path %>

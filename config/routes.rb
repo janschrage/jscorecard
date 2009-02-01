@@ -1,4 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
+
+  map.connect '', :controller => "report"
+
   map.resources :achievements
 
   map.resources :kpitargets
@@ -8,6 +11,12 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :targets
 
   map.resources :perspectives
+
+
+  map.connect 'users/change_password', :controller => "users", :action => "change_password"
+  map.resources :users
+  map.resources :roles
+  map.resources :rights
 
   # The priority is based upon order of creation: first created -> highest priority.
 

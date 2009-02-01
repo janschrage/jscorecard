@@ -10,25 +10,11 @@
 
 </head>
 <body>
-<div id="topbar">
-<div id="usermenu">
-<%= link_to "Logout", :controller => "admin", :action => "logout" %>
-<%= link_to "Change Password", :controller => "users", :action => "change_password" %>	
-<a href="/info.html" target="_blank">About</a>
-</div>
 
-
-<div id="mainmenu" class="left">
-<a href="/admin">Maintain</a>
-<a href="/report">Report</a>
-<a href="/dataentry">Enter values</a>
-</div>
-</div>
-<div class="pagecontent">
 <p style="color: green"><%= flash[:notice] %></p>
 <p style="color: red; font-weight: bold;"><%= flash[:error] %></p>
 
 <%= yield  %>
-</div>
+
 </body>
 </html>

@@ -1,4 +1,7 @@
 class KpitargetsController < ApplicationController
+
+  cache_sweeper :audit_sweeper
+
   # GET /kpitargets
   # GET /kpitargets.xml
   def index

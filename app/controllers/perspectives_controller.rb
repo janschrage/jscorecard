@@ -1,4 +1,7 @@
 class PerspectivesController < ApplicationController
+
+  cache_sweeper :audit_sweeper
+
   # GET /perspectives
   # GET /perspectives.xml
   def index
