@@ -1,6 +1,6 @@
 # JScorecard
 #
-# Copyright (C) 2008 Jan Schrage <jan@jschrage.de>
+# Copyright (C) 2009 Jan Schrage <jan@jschrage.de>
 # 
 # This program is free software: you can redistribute it and/or modify it under the terms of the GNU 
 # General Public License as published by the Free Software Foundation, either version 3 of the License,
