@@ -19,27 +19,39 @@ class Kpi < ActiveRecord::Base
   has_many   :achievements
 
   def target_value_for(report_date)
-    target_value=self.kpitargets.find(:first,:conditions => ["begda <= ? and endda >= ?",report_date,report_date])
-    return target_value.target_value
+    begin
+      target_value=self.kpitargets.find(:first,:conditions => ["begda <= ? and endda >= ?",report_date,report_date]).target_value
+    rescue
+      return 0 #no value found, fail gently
+    else
+      return target_value
+    end
   end
 
   def last_achieved_value
-    v=self.achievements.find(:first,:order => "report_date DESC")
-    return v.kpivalue unless v.nil?
+    begin
+      last_achieved=self.achievements.find(:first,:order => "report_date DESC").kpivalue
+    rescue
+      return 0  #no value found, fail gently
+    else
+      return last_achieved
+    end
   end
 
   def achievement_for(report_date)
-    v=self.achievements.find_by_report_date(report_date)
-    return v unless v.nil?
+  # Used to find values for data entry screen by date
+    achievement=self.achievements.find_by_report_date(report_date)
+    return achievement
   end
   
   def achievement_percentage(report_date)
     target = target_value_for(report_date)
     achieved = last_achieved_value
+    bigger_is_better = self.bigger_is_better
     perc=(1000*(target-achieved)/target + 0.5).truncate/10 unless target.nil? or achieved.nil?
     if !perc.nil?
-      perc = 100 - perc if self.bigger_is_better 
-      perc = 100 + perc if !self.bigger_is_better
+      perc = 100 - perc if bigger_is_better
+      perc = 100 + perc if !bigger_is_better
     end
     return perc
   end
