@@ -48,7 +48,9 @@ class Kpi < ActiveRecord::Base
     target = target_value_for(report_date)
     achieved = last_achieved_value
     bigger_is_better = self.bigger_is_better
-    perc=(1000*(target-achieved)/target + 0.5).truncate/10 unless target.nil? or achieved.nil?
+    if !target.nil? and !achieved.nil?
+    	perc=(1000*(target-achieved)/target + 0.5).truncate/10 unless target == 0
+    end
     if !perc.nil?
       perc = 100 - perc if bigger_is_better
       perc = 100 + perc if !bigger_is_better

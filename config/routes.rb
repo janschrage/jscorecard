@@ -12,6 +12,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :perspectives
 
+  map.connect '', :controller => "achievements"
 
   map.connect 'users/change_password', :controller => "users", :action => "change_password"
   map.resources :users
