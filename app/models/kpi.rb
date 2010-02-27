@@ -28,9 +28,11 @@ class Kpi < ActiveRecord::Base
     end
   end
 
-  def last_achieved_value
+  def last_achieved_value(report_date)
+    #Finds the last achievement before report_date
+    report_date = Date::today unless report_date
     begin
-      last_achieved=self.achievements.find(:first,:order => "report_date DESC").kpivalue
+      last_achieved=self.achievements.find(:first,:order => "report_date DESC",:conditions => ["report_date <= ?",report_date]).kpivalue
     rescue
       return 0  #no value found, fail gently
     else
@@ -46,7 +48,7 @@ class Kpi < ActiveRecord::Base
   
   def achievement_percentage(report_date)
     target = target_value_for(report_date)
-    achieved = last_achieved_value
+    achieved = last_achieved_value(report_date)
     bigger_is_better = self.bigger_is_better
     if !target.nil? and !achieved.nil?
     	perc=(1000*(target-achieved)/target + 0.5).truncate/10 unless target == 0
