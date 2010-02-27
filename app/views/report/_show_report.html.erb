@@ -22,6 +22,7 @@
     <td class="number"><%=h kpi.target_value_for(@report_date) %></td>
     <td class="number"><%=h kpi.last_achieved_value(@report_date) %></td>
     <td class="<%=h kpi.achievement_rating(@report_date)%>"><%=h kpi.achievement_percentage(@report_date) %></td>
+	<td class="graph"><%kpi.sparkline(@report_date)%>
   </tr>
 <% end %>
 <% end %>

@@ -69,4 +69,14 @@ class Kpi < ActiveRecord::Base
     return "improve" if percentage >= threshold_2
     return "failing"
   end
+  
+  def sparkline(report_date)
+    target = target_value_for(report_date)
+    achievements = self.achievements.find(:all,:order => "report_date ASC",:conditions => ["report_date <= ?",report_date])
+    data = []
+    achievements.each do |a|
+      data << a.kpivalue
+    end
+    Sparklines.plot(data, :type => bar, :height => 10, :target => target)
+  end
 end
