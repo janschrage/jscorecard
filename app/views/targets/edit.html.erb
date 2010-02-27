@@ -13,7 +13,7 @@
   </p>
   <p>
     Belongs to perspective:<br />
-    <% @perspectives=Perspective.find(:all,:sort => :name) %>
+    <%@perspectives=Perspective.find(:all,:order => :name) %>
     <%= f.collection_select :perspective_id, @perspectives, :id, :name %>
   </p>
   <p>

@@ -11,7 +11,7 @@
 
 <% for kpitarget in @kpitargets %>
   <tr>
-    <td><%=h kpitarget.kpi.name %></td>
+    <td><%=h kpitarget.kpi.name if kpitarget.kpi %></td>
     <td><%=h kpitarget.begda %></td>
     <td><%=h kpitarget.endda %></td>
     <td><%=h kpitarget.target_value %></td>

@@ -11,7 +11,7 @@
   <tr>
     <td><%=h target.name %></td>
     <td><%=h target.description %></td>
-    <td><%=h target.perspective.name %></td>
+    <td><%=h target.perspective.name if target.perspective%></td>
     <td><%= link_to 'Show', target %></td>
     <td><%= link_to 'Edit', edit_target_path(target) %></td>
     <td><%= link_to 'Destroy', target, :confirm => 'Are you sure?', :method => :delete %></td>

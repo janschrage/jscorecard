@@ -9,7 +9,7 @@
 
 <% for achievement in @achievements %>
   <tr>
-    <td><%=h achievement.kpi.name %></td>
+    <td><%=h achievement.kpi.name if achievement.kpi%></td>
     <td><%=h achievement.report_date %></td>
     <td><%=h achievement.kpivalue %></td>
     <td><%= link_to 'Show', achievement %></td>

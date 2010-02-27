@@ -13,8 +13,8 @@
   <tr>
     <td><%=h kpi.name %></td>
     <td><%=h kpi.description %></td>
-    <td><%=h kpi.target.name %></td>
-    <td><%=h kpi.target.perspective.name %></td>
+    <td><%=h kpi.target.name if kpi.target%></td>
+    <td><%=h kpi.target.perspective.name if kpi.target%></td>
     <td><%=h kpi.bigger_is_better %></td>
     <td><%= link_to 'Show', kpi %></td>
     <td><%= link_to 'Edit', edit_kpi_path(kpi) %></td>
