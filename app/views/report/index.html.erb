@@ -1,31 +1,24 @@
+<div id="pagecontent">
+
 <h1>Report</h1>
 
+<% form_remote_for :entry_variables, @entry_variables, 
+         :url=>{:controller=>"report", :action=>"show_report"},            
+         :update => {:success => "show_report"}, :html => { :multipart => true } do |f| %>
 <table>
 <tr>
-<th>Perspective</th><th>Target</th><th>KPI</th><th>KPI target value</th><th>Achieved value</th><th>% reached</th>
+<td class="text"><label for="report_date">Report date:</label></td><td><%= f.text_field :report_date, :size => 10, :value => @entry_variables[:report_date].to_s %></td>
 </tr>
-<% @perspectives.each do |p| %>
-
-<tr class="subheader">
-<td><%=h p.name%></td><td></td><td></td><td></td><td></td><td></td>
-</tr>
-
-<% for target in p.targets %>
-<tr class="subheader">
-<td></td>
-<td><%=h target.name -%></td>
-<td></td><td></td><td></td><td></td>
-</tr>
-<% for kpi in target.kpis %>
-  <tr class="<%= cycle('list-line-odd', 'list-line-even') %>">
-    <td></td><td></td>
-    <td><%=h kpi.name %></td>
-    <td class="number"><%=h kpi.target_value_for(Date::today) %></td>
-    <td class="number"><%=h kpi.last_achieved_value() %></td>
-    <td class="<%=h kpi.achievement_rating(Date::today)%>"><%=h kpi.achievement_percentage(Date::today) %></td>
-  </tr>
-<% end %>
-<% end %>
-<% end %>
 </table>
+<%= submit_tag "Go" %>
 
+<% end %>
+
+<div id="report">
+<%= render(:partial => "show_report", :object => @perspectives) %>
+</div>
+
+
+
+
+</div>

@@ -15,6 +15,12 @@
 class ReportController < ApplicationController
 
   def index
+    @entry_variables={ :report_date => Date::today.to_s }
+  end
+  
+  def show_report
     @perspectives = Perspective.find(:all)
+    @report_date  = params[:entry_variables][:report_date].to_date
+    session[:report_date] = @report_date.to_s
   end
 end
