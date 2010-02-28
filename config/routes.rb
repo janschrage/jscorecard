@@ -11,6 +11,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :targets
 
   map.resources :perspectives
+  
 
   map.connect '', :controller => "achievements"
 

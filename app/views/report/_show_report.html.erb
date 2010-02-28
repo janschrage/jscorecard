@@ -22,7 +22,7 @@
     <td class="number"><%=h kpi.target_value_for(@report_date) %></td>
     <td class="number"><%=h kpi.last_achieved_value(@report_date) %></td>
     <td class="<%=h kpi.achievement_rating(@report_date)%>"><%=h kpi.achievement_percentage(@report_date) %></td>
-	<td class="graph"><%kpi.sparkline(@report_date)%>
+	<td><%= image_tag("/graph/kpi_sparkline/#{kpi.id}", :format =>'png')%>
   </tr>
 <% end %>
 <% end %>

@@ -41,7 +41,7 @@ class AdminController < ApplicationController
 
 private
   def determine_layout
-    if session[:user_id] 
+    if User.count.zero? or session[:user_id]
       "JScorecard"
     else
       "JScorecard_noauth"

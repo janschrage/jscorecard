@@ -13,7 +13,9 @@
 # You should have received a copy of the GNU General Public License along with this program. 
 # If not, see <http://www.gnu.org/licenses/>.
 
+
 class Kpi < ActiveRecord::Base
+
   belongs_to :target
   has_many   :kpitargets
   has_many   :achievements
@@ -70,13 +72,4 @@ class Kpi < ActiveRecord::Base
     return "failing"
   end
   
-  def sparkline(report_date)
-    target = target_value_for(report_date)
-    achievements = self.achievements.find(:all,:order => "report_date ASC",:conditions => ["report_date <= ?",report_date])
-    data = []
-    achievements.each do |a|
-      data << a.kpivalue
-    end
-    Sparklines.plot(data, :type => bar, :height => 10, :target => target)
-  end
 end
